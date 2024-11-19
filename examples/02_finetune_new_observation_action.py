@@ -53,7 +53,7 @@ def main(_):
     tf.config.set_visible_devices([], "GPU")
 
     # setup wandb for logging
-    wandb.init(name="finetune_aloha", project="octo")
+    wandb.init(name="finetune_aloha", project="octo-test")
 
     # load pre-trained model
     logging.info("Loading pre-trained model...")
@@ -81,6 +81,7 @@ def main(_):
         ),
         train=True,
     )
+    print(f"Batch size: {FLAGS.batch_size} ==================================================================================================================================================================================")
     train_data_iter = (
         dataset.repeat()
         .unbatch()
